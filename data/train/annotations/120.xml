@@ -1,0 +1,26 @@
+<annotation>
+	<folder>promos</folder>
+	<filename>120.jpg</filename>
+	<path>/Users/tomas/Documents/future/datasets/promos/120.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>914</width>
+		<height>1260</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>product</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>35</xmin>
+			<ymin>935</ymin>
+			<xmax>896</xmax>
+			<ymax>1231</ymax>
+		</bndbox>
+	</object>
+</annotation>
