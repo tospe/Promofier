@@ -23,7 +23,7 @@ def build_model(num_classes):
 
 	# replace the pre-trained head with a new one
 	model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
-
+	return model
 def get_transform(train):
 	transforms = []
 	# converts the image, a PIL image, into a PyTorch Tensor
@@ -55,6 +55,10 @@ if __name__ == "__main__":
 
 	# get the model using our helper function
 	model = build_model(num_classes)
+
+	# move model to the right device
+	model.to(device)
+
 
 	# construct an optimizer
 	params = [p for p in model.parameters() if p.requires_grad]
