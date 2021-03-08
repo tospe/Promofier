@@ -10,7 +10,7 @@ __Train the model__
 python3 train.py
 ```
 
-The model will be `./model/faster-rcnn-promos.pt`
+The model will be3 `./model/faster-rcnn-promos.pt`
 
 __Model Inference__
 
