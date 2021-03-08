@@ -1,4 +1,4 @@
-# Fine-Tune Faste-RCNN on a custom promotions flyer dataset using pytorch
+# Fine-Tune Faster-RCNN on a custom promotions flyer dataset using pytorch
 
 Goal: Identify products in a promotions flyer.
 
@@ -9,7 +9,8 @@ __Train the model__
 ```shell
 python3 train.py
 ```
-The trained model will be saved in the `output/` with name `faster-rcnn-beagle.pt`
+
+The model will be `./model/faster-rcnn-promos.pt`
 
 __Model Inference__
 
