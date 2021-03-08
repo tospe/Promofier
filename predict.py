@@ -6,7 +6,7 @@ import torchvision.transforms as T
 import torchvision
 import numpy as np
 
-import cv2cv2
+import cv2
 import random
 import argparse
 
@@ -19,7 +19,7 @@ ap.add_argument("-c", "--confidence", type=float, default=0.7,
 args = vars(ap.parse_args())
 
 CLASS_NAMES = ["__background__", "produto"]
-def get_prediction(img_path, confidence):
+def get_prediction(img_path, confidence, device):
 	"""
 	get_prediction
 	  parameters:
@@ -48,7 +48,7 @@ def get_prediction(img_path, confidence):
 	pred_score = pred_score[:pred_t+1]
 	return pred_boxes, pred_class, pred_score
    
-def detect_object(img_path, confidence=0.5, rect_th=2, text_size=1, text_th=1):
+def detect_object(img_path, device, confidence=0.5, rect_th=2, text_size=1, text_th=1):
 	"""
 	object_detection_api
 	  parameters:
@@ -63,7 +63,7 @@ def detect_object(img_path, confidence=0.5, rect_th=2, text_size=1, text_th=1):
 		  with opencv
 		- the final image is displayed
 	"""
-	boxes, pred_cls, pred_score = get_prediction(img_path, confidence)
+	boxes, pred_cls, pred_score = get_prediction(img_path, confidence, device)
 	img = cv2.imread(img_path)
 	img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	# print(len(boxes))
@@ -76,10 +76,17 @@ def detect_object(img_path, confidence=0.5, rect_th=2, text_size=1, text_th=1):
 	plt.yticks([])
 	plt.savefig('pred.png')
 	plt.show()
-  
+
 if __name__ == "__main__":
-	device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-	model = torch.load(args["model"])
+	 
+	if torch.cuda.is_available(): 
+		device = torch.device('cuda')
+		model = torch.load(args["model"])
+	else: 
+		device = torch.device('cpu')
+		model = torch.load(args["model"], map_location=torch.device('cpu'))
+		  
+	
 	img_path = args["image"]
-	detect_object(img_path, confidence=args["confidence"])
+	detect_object(img_path, device=device, confidence=args["confidence"])
 	
