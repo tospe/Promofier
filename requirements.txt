@@ -1,0 +1,6 @@
+pycocotools
+torch
+torchvision
+pillow
+matplotlib
+num
