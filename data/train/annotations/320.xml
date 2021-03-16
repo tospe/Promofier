@@ -1,7 +1,7 @@
 <annotation>
-	<folder>promos</folder>
+	<folder>raw</folder>
 	<filename>320.jpg</filename>
-	<path>/Users/tomas/Documents/future/datasets/promos/320.jpg</path>
+	<path>/Users/tomas/Documents/future/datasets/promos/raw/320.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -33,6 +33,54 @@
 			<ymin>605</ymin>
 			<xmax>855</xmax>
 			<ymax>1186</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>715</xmin>
+			<ymin>522</ymin>
+			<xmax>815</xmax>
+			<ymax>590</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>718</xmin>
+			<ymin>1108</ymin>
+			<xmax>805</xmax>
+			<ymax>1175</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>promotion</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>747</xmin>
+			<ymin>919</ymin>
+			<xmax>830</xmax>
+			<ymax>961</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>promotion</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>744</xmin>
+			<ymin>337</ymin>
+			<xmax>829</xmax>
+			<ymax>383</ymax>
 		</bndbox>
 	</object>
 </annotation>

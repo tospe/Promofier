@@ -1,7 +1,7 @@
 <annotation>
-	<folder>promos</folder>
+	<folder>raw</folder>
 	<filename>191.jpg</filename>
-	<path>/Users/tomas/Documents/future/datasets/promos/191.jpg</path>
+	<path>/Users/tomas/Documents/future/datasets/promos/raw/191.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -66,8 +66,8 @@
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>122</xmin>
-			<ymin>728</ymin>
-			<xmax>720</xmax>
+			<ymin>731</ymin>
+			<xmax>724</xmax>
 			<ymax>787</ymax>
 		</bndbox>
 	</object>
@@ -93,6 +93,126 @@
 			<ymin>867</ymin>
 			<xmax>727</xmax>
 			<ymax>931</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>233</xmin>
+			<ymin>243</ymin>
+			<xmax>324</xmax>
+			<ymax>295</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>614</xmin>
+			<ymin>224</ymin>
+			<xmax>718</xmax>
+			<ymax>297</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>640</xmin>
+			<ymin>523</ymin>
+			<xmax>714</xmax>
+			<ymax>578</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>275</xmin>
+			<ymin>528</ymin>
+			<xmax>355</xmax>
+			<ymax>579</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>396</xmin>
+			<ymin>752</ymin>
+			<xmax>457</xmax>
+			<ymax>789</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>396</xmin>
+			<ymin>811</ymin>
+			<xmax>463</xmax>
+			<ymax>860</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>400</xmin>
+			<ymin>886</ymin>
+			<xmax>459</xmax>
+			<ymax>923</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>475</xmin>
+			<ymin>740</ymin>
+			<xmax>670</xmax>
+			<ymax>774</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>475</xmin>
+			<ymin>813</ymin>
+			<xmax>702</xmax>
+			<ymax>839</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>476</xmin>
+			<ymin>870</ymin>
+			<xmax>705</xmax>
+			<ymax>908</ymax>
 		</bndbox>
 	</object>
 </annotation>

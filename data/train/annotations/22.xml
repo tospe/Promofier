@@ -1,7 +1,7 @@
 <annotation>
-	<folder>promos</folder>
+	<folder>raw</folder>
 	<filename>22.jpg</filename>
-	<path>/Users/tomas/Documents/future/datasets/promos/22.jpg</path>
+	<path>/Users/tomas/Documents/future/datasets/promos/raw/22.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -45,6 +45,90 @@
 			<ymin>9</ymin>
 			<xmax>902</xmax>
 			<ymax>647</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>162</xmin>
+			<ymin>561</ymin>
+			<xmax>296</xmax>
+			<ymax>634</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>26</xmin>
+			<ymin>573</ymin>
+			<xmax>109</xmax>
+			<ymax>623</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>343</xmin>
+			<ymin>592</ymin>
+			<xmax>443</xmax>
+			<ymax>619</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>616</xmin>
+			<ymin>573</ymin>
+			<xmax>685</xmax>
+			<ymax>620</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>451</xmin>
+			<ymin>558</ymin>
+			<xmax>588</xmax>
+			<ymax>634</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>746</xmin>
+			<ymin>559</ymin>
+			<xmax>882</xmax>
+			<ymax>633</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>promotion</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>490</xmin>
+			<ymin>508</ymin>
+			<xmax>565</xmax>
+			<ymax>537</ymax>
 		</bndbox>
 	</object>
 </annotation>

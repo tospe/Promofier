@@ -1,7 +1,7 @@
 <annotation>
-	<folder>promos</folder>
+	<folder>raw</folder>
 	<filename>339.jpg</filename>
-	<path>/Users/tomas/Documents/future/datasets/promos/339.jpg</path>
+	<path>/Users/tomas/Documents/future/datasets/promos/raw/339.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -57,6 +57,90 @@
 			<ymin>317</ymin>
 			<xmax>1035</xmax>
 			<ymax>997</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>697</xmin>
+			<ymin>837</ymin>
+			<xmax>972</xmax>
+			<ymax>986</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>195</xmin>
+			<ymin>1219</ymin>
+			<xmax>317</xmax>
+			<ymax>1281</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>530</xmin>
+			<ymin>1219</ymin>
+			<xmax>657</xmax>
+			<ymax>1273</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>855</xmin>
+			<ymin>1224</ymin>
+			<xmax>997</xmax>
+			<ymax>1279</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>710</xmin>
+			<ymin>1211</ymin>
+			<xmax>835</xmax>
+			<ymax>1286</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>513</xmin>
+			<ymin>1135</ymin>
+			<xmax>672</xmax>
+			<ymax>1193</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>168</xmin>
+			<ymin>1137</ymin>
+			<xmax>337</xmax>
+			<ymax>1191</ymax>
 		</bndbox>
 	</object>
 </annotation>

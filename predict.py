@@ -18,7 +18,7 @@ ap.add_argument("-c", "--confidence", type=float, default=0.7,
 				help="confidence to keep predictions")
 args = vars(ap.parse_args())
 
-CLASS_NAMES = ["__background__", "produto"]
+CLASS_NAMES = ["__background__", "product","name", "price", "promotion" ]
 def get_prediction(img_path, confidence, device):
 	"""
 	get_prediction

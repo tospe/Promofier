@@ -1,7 +1,7 @@
 <annotation>
-	<folder>promos</folder>
+	<folder>raw</folder>
 	<filename>220.jpg</filename>
-	<path>/Users/tomas/Documents/future/datasets/promos/220.jpg</path>
+	<path>/Users/tomas/Documents/future/datasets/promos/raw/220.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -21,6 +21,30 @@
 			<ymin>646</ymin>
 			<xmax>733</xmax>
 			<ymax>996</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>price</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>564</xmin>
+			<ymin>916</ymin>
+			<xmax>694</xmax>
+			<ymax>969</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>name</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>569</xmin>
+			<ymin>736</ymin>
+			<xmax>702</xmax>
+			<ymax>774</ymax>
 		</bndbox>
 	</object>
 </annotation>

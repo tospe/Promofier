@@ -6,6 +6,7 @@ from PIL import Image
 import json
 import xml.etree.ElementTree as ET 
 
+CLASS_NAMES = ["__background__", "product","name", "price", "promotion" ]
 class PromotionDataset(torch.utils.data.Dataset):
 	def __init__(self,data_dir,transforms=None):
 		self.data_dir = data_dir
@@ -24,6 +25,7 @@ class PromotionDataset(torch.utils.data.Dataset):
 		objects = annots.getroot().findall('object')
 		num_objs = len(objects)
 		boxes = []
+		labels = []
 
 		#get all boxes
 		for o in objects:
