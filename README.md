@@ -2,6 +2,7 @@
 
 Goal: Identify products in a promotions flyer.
 
+![Predictions](pred.png)
 
 ## Usage
 
