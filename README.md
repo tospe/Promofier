@@ -2,7 +2,7 @@
 
 Goal: Identify products in a promotions flyer.
 
-<img src="pred.png" alt="Predictions" width="200"/>
+<img src="test-images/multiple.jpg" alt="Predictions" width="200"/>
 
 ## Usage
 
