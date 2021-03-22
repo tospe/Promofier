@@ -11,8 +11,8 @@ class PromotionDataset(torch.utils.data.Dataset):
 	def __init__(self,data_dir,transforms=None):
 		self.data_dir = data_dir
 		self.transforms = transforms
-		self.imgs = list(sorted(os.listdir( data_dir )))
-		self.annotations = list(sorted(os.listdir( data_dir )))
+		self.imgs = list(sorted(os.listdir( os.path.join(self.data_dir, "imgs") )))
+		self.annotations = list(sorted(os.listdir( os.path.join(self.data_dir, "annotations") )))
 
 	def __getitem__(self,idx):
 		#load images and annotations
@@ -34,9 +34,10 @@ class PromotionDataset(torch.utils.data.Dataset):
 			ymin = int(o.find('bndbox').find('ymin').text)
 			ymax = int(o.find('bndbox').find('ymax').text)
 			boxes.append([xmin, ymin, xmax, ymax])
+			labels.append(CLASS_NAMES.index(o.find('name').text))
 
 		boxes = torch.as_tensor(boxes, dtype=torch.float32) 	
-		labels = torch.ones((num_objs,), dtype=torch.int64)
+		labels = torch.as_tensor(labels, dtype=torch.int64)
 		image_id = torch.tensor([idx])
 		area = (boxes[:, 3] - boxes[:, 1]) * (boxes[:, 2] - boxes[:, 0])
 

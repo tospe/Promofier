@@ -13,7 +13,7 @@ import json
 from engine import train_one_epoch, evaluate
 import utils
 import transforms as T
-
+CLASS_NAMES = ["__background__", "product","name", "price", "promotion" ]
 def build_model(num_classes):
 	# load an instance segmentation model pre-trained on COCO
 	model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
@@ -51,7 +51,7 @@ if __name__ == "__main__":
 	device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 	# our dataset has two classes only - background and beagle
-	num_classes = 2
+	num_classes = len(CLASS_NAMES)
 
 	# get the model using our helper function
 	model = build_model(num_classes)
