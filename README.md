@@ -1,6 +1,6 @@
 # Fine-Tune Faster-RCNN on a custom promotions flyer dataset using pytorch
 
-Goal: Identify products in a promotions flyer.
+Goal: Identify products in a lidl (for now) promotions flyer.
 
 ![Predictions](pred.png)
 
