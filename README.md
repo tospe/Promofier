@@ -2,7 +2,7 @@
 
 Goal: Identify products in a promotions flyer.
 
-![Predictions](pred.png =250x)
+<img src="pred.png" alt="Predictions" width="200"/>
 
 ## Usage
 
