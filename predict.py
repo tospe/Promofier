@@ -9,6 +9,7 @@ import numpy as np
 import cv2
 import random
 import argparse
+import pytesseract
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-m", "--model", default="./model/faster-rcnn-promos.pt",
@@ -33,7 +34,7 @@ def get_prediction(img_path, confidence, device):
 		  are chosen.
 	
 	"""
-	img = Image.open(img_path)
+	img = Image.open(img_path).convert('RGB')
 	transform = T.Compose([T.ToTensor()])
 	img = transform(img).to(device)
 	pred = model([img])
@@ -48,7 +49,7 @@ def get_prediction(img_path, confidence, device):
 	pred_score = pred_score[:pred_t+1]
 	return pred_boxes, pred_class, pred_score
    
-def detect_object(img_path, device, confidence=0.5, rect_th=2, text_size=1, text_th=1):
+def detect_object(img_path, device, confidence=0.5, rect_th=2, text_size=1, text_th=4):
 	"""
 	object_detection_api
 	  parameters:
@@ -64,18 +65,48 @@ def detect_object(img_path, device, confidence=0.5, rect_th=2, text_size=1, text
 		- the final image is displayed
 	"""
 	boxes, pred_cls, pred_score = get_prediction(img_path, confidence, device)
+	# boxes_sort = sorted(boxes, key = lambda x: x[0][0])
+	names = [ i for i in range(len(boxes)) if pred_cls[i] == 'name' ]
+	prices = [ i for i in range(len(boxes)) if pred_cls[i] == 'price' ]
+	products = [ i for i in range(len(boxes)) if pred_cls[i] == 'product' ]
+
 	img = cv2.imread(img_path)
 	img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-	# print(len(boxes))
+	im_pil = Image.fromarray(img)
+	text_color = (119, 76, 252)
+
+	f = open("pred/products.txt", "w")
+	for product in products:
+		text = ""
+		p_coord = boxes[product]
+		for name in names:
+			n_coord = boxes[name]
+			if p_coord[0][0] <= n_coord[0][0] and p_coord[0][1] <= n_coord[0][1]:
+				if p_coord[1][0] >= n_coord[1][0] and p_coord[1][1] >= n_coord[1][1]:
+					img_crop = im_pil.crop( (n_coord[0][0], n_coord[0][1], n_coord[1][0], n_coord[1][1]) )
+					p_name = str(pytesseract.image_to_string(img_crop, config='--psm 6'))
+					p_name = p_name.replace("\n", " ")
+					text = text + p_name
+		for price in prices:
+			price_coord = boxes[price]
+			if p_coord[0][0] <= price_coord[0][0] and p_coord[0][1] <= price_coord[0][1]:
+				if p_coord[1][0] >= price_coord[1][0] and p_coord[1][1] >= price_coord[1][1]:
+					img_crop = im_pil.crop( (price_coord[0][0], price_coord[0][1], price_coord[1][0], price_coord[1][1]) )
+					text = text + " " + str(pytesseract.image_to_string(img_crop, config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789').strip() + "\n") 
+		f.write(text)
+	f.close()
+
 	for i in range(len(boxes)):
-	  cv2.rectangle(img, boxes[i][0], boxes[i][1],color=(0, 255, 0), thickness=rect_th)
-	  cv2.putText(img,pred_cls[i]+": "+str(round(pred_score[i],3)), boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, text_size, (0,255,0),thickness=text_th)
-	plt.figure(figsize=(20,30))
+		cv2.rectangle(img, boxes[i][0], boxes[i][1],color=text_color, thickness=rect_th)
+		cv2.putText(img,pred_cls[i]+": "+ str(i)+ "  " +str(round(pred_score[i],3)), boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, text_size, text_color,thickness=text_th)
+	fig = plt.figure()
 	plt.imshow(img)
 	plt.xticks([])
 	plt.yticks([])
-	plt.savefig('pred.png')
+	fig.tight_layout()
+	plt.savefig('pred/pred.png')
 	plt.show()
+	
 
 if __name__ == "__main__":
 	 

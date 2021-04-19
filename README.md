@@ -21,4 +21,5 @@ python3 predict.py --image path/to/test/image
 #for example
 python3 predict.py --image multiple.jpg
 ```
+
 __Note__: `utils.py`, `transforms.py`, `coco_eval.py`, `coco_utils.py`, `engine.py` contains helper functions used during training process, and they are adopted from PyTorch Repo.
