@@ -14,6 +14,7 @@ python3 train.py
 The model will be `./model/faster-rcnn-promos.pt`
 
 __Model Inference__
+
 Read all products from a image (e.g. screenshot ) of a flyer displays the bounding boxes and saves the products name and the price to a txt file.   
 
 ```shell
@@ -23,6 +24,7 @@ python3 predict.py --image path/to/test/image
 python3 predict.py --image multiple.jpg
 ```
 __Read Through PDF__
+
 Read all products from a pdf flyer and saves them in a txt file. 
 
 ```shell
