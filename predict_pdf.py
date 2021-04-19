@@ -6,7 +6,7 @@ import torchvision.transforms as T
 import torchvision
 import numpy as np
 import os
-
+import gc
 import cv2
 import random
 import argparse
@@ -15,7 +15,7 @@ from wand.image import Image as wImage
 ap = argparse.ArgumentParser()
 ap.add_argument("-m", "--model", default="./model/faster-rcnn-promos.pt",
 				help="path to the model")
-ap.add_argument("-i", "--image", required=True, help="path to input image")
+ap.add_argument("-i", "--pdf", required=True, help="path to input pdf")
 ap.add_argument("-c", "--confidence", type=float, default=0.7, 
 				help="confidence to keep predictions")
 args = vars(ap.parse_args())
@@ -35,6 +35,7 @@ def get_pdf_prediction(confidence, device):
 		  are chosen.
 	
 	"""
+	gc.collect()
 	predictions_file = "pred/all.txt"
 	total_products = 0
 	files = [ file for file in os.listdir("./test-pdfs") if file.endswith(".jpg") ]
@@ -42,7 +43,6 @@ def get_pdf_prediction(confidence, device):
 	if os.path.exists(predictions_file):
 		os.remove(predictions_file)
 	for file in files:
-		print(file)
 		#prepare prediction
 		im_pil = Image.open(os.path.join("test-pdfs",file)).convert('RGB')
 		transform = T.Compose([T.ToTensor()])
@@ -91,11 +91,16 @@ def get_pdf_prediction(confidence, device):
 
 
 def prepare_pdf(pdf_path):
-	with(wImage(filename=pdf_path, resolution=120)) as source: 
+	with wImage(filename=pdf_path, resolution=120) as source:
 		for i, image in enumerate(source.sequence):
-			print("image", str(i))
 			newfilename = pdf_path[:-4] + str(i) +'.jpg'
-			wImage(image).save(filename=newfilename)	
+			wImage(image).save(filename=newfilename)
+			image.destroy()
+			del image
+		del source
+		gc.collect()
+	# del source
+	gc.collect()
 
 			
    
@@ -114,9 +119,9 @@ def detect_object(pdf_path, device, confidence=0.5, rect_th=2, text_size=1, text
 		  with opencv
 		- the final image is displayed
 	"""
-	print("preparing")
-	# prepare_pdf(pdf_path)
-	print("predicting")
+	print("prepare pdf")
+	prepare_pdf(pdf_path)
+	print("classifying")
 	boxes, pred_cls, pred_score = get_pdf_prediction(confidence, device)
 	
 	
@@ -131,6 +136,6 @@ if __name__ == "__main__":
 		model = torch.load(args["model"], map_location=torch.device('cpu'))
 		  
 	
-	img_path = args["image"]
-	detect_object(img_path, device=device, confidence=args["confidence"])
+	pdf_path = args["pdf"]
+	detect_object(pdf_path, device=device, confidence=args["confidence"])
 	
