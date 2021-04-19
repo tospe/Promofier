@@ -1,2 +1,2 @@
 # model is too big for github
-model/faster-rcnn-promos.pt
+model/*
